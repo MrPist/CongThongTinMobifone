@@ -1,6 +1,6 @@
 ﻿namespace CongThongTinMobifone.Models
 {
-    public class SoThueBao
+    public partial class Post_cate
     {
     }
 }

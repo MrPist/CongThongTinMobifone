@@ -1,6 +1,6 @@
 ﻿namespace CongThongTinMobifone.Models
 {
-    public class TrangTin
+    public partial class Package
     {
     }
 }

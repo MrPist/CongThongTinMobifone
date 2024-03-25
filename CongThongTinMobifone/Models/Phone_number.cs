@@ -1,6 +1,6 @@
 ﻿namespace CongThongTinMobifone.Models
 {
-    public class LoaiTin
+    public partial class Phone_number
     {
     }
 }
