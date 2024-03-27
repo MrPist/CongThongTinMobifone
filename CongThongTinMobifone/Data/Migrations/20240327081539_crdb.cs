@@ -61,15 +61,14 @@ namespace CongThongTinMobifone.Data.Migrations
                 name: "Phone_number",
                 columns: table => new
                 {
-                    Numnber_MAC = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Number = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Number_TypeID = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PostCateID = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    description = table.Column<int>(type: "int", maxLength: 150, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Phone_number", x => x.Numnber_MAC);
+                    table.PrimaryKey("PK_Phone_number", x => x.Number);
                     table.ForeignKey(
                         name: "FK_Phone_number_Number_Type_Number_TypeID",
                         column: x => x.Number_TypeID,
@@ -92,9 +91,10 @@ namespace CongThongTinMobifone.Data.Migrations
                     PostCateID = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Post_title = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     Post_content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    avatar = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date_created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Date_update = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    active = table.Column<bool>(type: "bit", nullable: false)
+                    active = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

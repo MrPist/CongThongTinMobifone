@@ -10,90 +10,87 @@ using CongThongTinMobifone.Models;
 
 namespace CongThongTinMobifone.Controllers
 {
-    public class PostsController : Controller
+    public class Number_TypeController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PostsController(ApplicationDbContext context)
+        public Number_TypeController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Posts
+        // GET: Number_Type
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Post.Include(p => p.PostIDNavigation);
-            return View(await applicationDbContext.ToListAsync());
+              return _context.Number_Type != null ? 
+                          View(await _context.Number_Type.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Number_Type'  is null.");
         }
 
-        // GET: Posts/Details/5
+        // GET: Number_Type/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Number_Type == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post
-                .Include(p => p.PostIDNavigation)
-                .FirstOrDefaultAsync(m => m.PostID == id);
-            if (post == null)
+            var number_Type = await _context.Number_Type
+                .FirstOrDefaultAsync(m => m.Number_TypeID == id);
+            if (number_Type == null)
             {
                 return NotFound();
             }
 
-            return View(post);
+            return View(number_Type);
         }
 
-        // GET: Posts/Create
+        // GET: Number_Type/Create
         public IActionResult Create()
         {
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
         }
 
-        // POST: Posts/Create
+        // POST: Number_Type/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update,active")] Post post)
+        public async Task<IActionResult> Create([Bind("Number_TypeID,Title,Content")] Number_Type number_Type)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(post);
+                _context.Add(number_Type);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(number_Type);
         }
 
-        // GET: Posts/Edit/5
+        // GET: Number_Type/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Number_Type == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post.FindAsync(id);
-            if (post == null)
+            var number_Type = await _context.Number_Type.FindAsync(id);
+            if (number_Type == null)
             {
                 return NotFound();
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(number_Type);
         }
 
-        // POST: Posts/Edit/5
+        // POST: Number_Type/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update,active")] Post post)
+        public async Task<IActionResult> Edit(string id, [Bind("Number_TypeID,Title,Content")] Number_Type number_Type)
         {
-            if (id != post.PostID)
+            if (id != number_Type.Number_TypeID)
             {
                 return NotFound();
             }
@@ -102,12 +99,12 @@ namespace CongThongTinMobifone.Controllers
             {
                 try
                 {
-                    _context.Update(post);
+                    _context.Update(number_Type);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PostExists(post.PostID))
+                    if (!Number_TypeExists(number_Type.Number_TypeID))
                     {
                         return NotFound();
                     }
@@ -118,51 +115,49 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(number_Type);
         }
 
-        // GET: Posts/Delete/5
+        // GET: Number_Type/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Number_Type == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post
-                .Include(p => p.PostIDNavigation)
-                .FirstOrDefaultAsync(m => m.PostID == id);
-            if (post == null)
+            var number_Type = await _context.Number_Type
+                .FirstOrDefaultAsync(m => m.Number_TypeID == id);
+            if (number_Type == null)
             {
                 return NotFound();
             }
 
-            return View(post);
+            return View(number_Type);
         }
 
-        // POST: Posts/Delete/5
+        // POST: Number_Type/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Post == null)
+            if (_context.Number_Type == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Post'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Number_Type'  is null.");
             }
-            var post = await _context.Post.FindAsync(id);
-            if (post != null)
+            var number_Type = await _context.Number_Type.FindAsync(id);
+            if (number_Type != null)
             {
-                _context.Post.Remove(post);
+                _context.Number_Type.Remove(number_Type);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PostExists(string id)
+        private bool Number_TypeExists(string id)
         {
-          return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
+          return (_context.Number_Type?.Any(e => e.Number_TypeID == id)).GetValueOrDefault();
         }
     }
 }

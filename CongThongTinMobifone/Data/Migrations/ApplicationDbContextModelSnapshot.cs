@@ -82,14 +82,14 @@ namespace CongThongTinMobifone.Data.Migrations
 
             modelBuilder.Entity("CongThongTinMobifone.Models.Phone_number", b =>
                 {
-                    b.Property<string>("Numnber_MAC")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("Number")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Number_TypeID")
                         .IsRequired()
@@ -101,11 +101,7 @@ namespace CongThongTinMobifone.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("description")
-                        .HasMaxLength(150)
-                        .HasColumnType("int");
-
-                    b.HasKey("Numnber_MAC");
+                    b.HasKey("Number");
 
                     b.HasIndex("Number_TypeID");
 
@@ -140,8 +136,12 @@ namespace CongThongTinMobifone.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<bool>("active")
-                        .HasColumnType("bit");
+                    b.Property<int>("active")
+                        .HasColumnType("int");
+
+                    b.Property<string>("avatar")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostID");
 
