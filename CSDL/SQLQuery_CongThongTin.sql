@@ -45,3 +45,4 @@ INSERT INTO Post (PostID, Post_title, Post_content, PostCateID, Date_created, Da
 																																100 giải khuyến khích: 1 hộp khẩu trang y tế.'
 ,N'PCT1','03/20/2024','03/20/2024','~~\images\Post_avt\GIAPTHINH_2.jpg',0);
 select * from Post
+
