@@ -38,6 +38,10 @@ INSERT INTO Post (PostID, Post_title, Post_content, PostCateID, Date_created, Da
 																															Sau khi nhắn tin tham gia chương trình thành công, khách hàng sẽ nhận lại được tin nhắn xác nhận đã đăng ký thành công – chậm nhất ngày n+1
 																															Mỗi khách hàng chỉ được tham dự 01 mã dự thưởng cho 1 số thuê bao (gồm thuê bao trả trước hoặc thuê bao trả sau)
 																															Kết quả trúng thưởng được căn cứ vào dự đoán của khách hàng có số gần đúng với 03 số cuối (trường hợp giống kết quả sẽ xét thời gian sớm hơn) của Giải đặc biết Xổ số Kiến thiết tỉnh An Giang ngày 01/02/2024
-																															Giải thưởng:'
+																															Giải thưởng:
+																																1 giải nhất: 1 chỉ vàng 9999.
+																																20 giải nhì: thẻ cào mệnh giá 100.000đ.
+																																24 giải ba: thẻ cào mệnh giá 50.000đ.
+																																100 giải khuyến khích: 1 hộp khẩu trang y tế.'
 ,N'PCT1','03/20/2024','03/20/2024','~~\images\Post_avt\GIAPTHINH_2.jpg',0);
 select * from Post
