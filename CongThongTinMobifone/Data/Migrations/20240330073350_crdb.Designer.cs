@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CongThongTinMobifone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240327081539_crdb")]
+    [Migration("20240330073350_crdb")]
     partial class crdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,9 +137,6 @@ namespace CongThongTinMobifone.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
-
-                    b.Property<int>("active")
-                        .HasColumnType("int");
 
                     b.Property<string>("avatar")
                         .IsRequired()

@@ -93,8 +93,7 @@ namespace CongThongTinMobifone.Data.Migrations
                     Post_content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     avatar = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date_created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Date_update = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    active = table.Column<int>(type: "int", nullable: false)
+                    Date_update = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

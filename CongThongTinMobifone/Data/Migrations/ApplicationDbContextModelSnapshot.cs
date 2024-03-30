@@ -136,9 +136,6 @@ namespace CongThongTinMobifone.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("active")
-                        .HasColumnType("int");
-
                     b.Property<string>("avatar")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

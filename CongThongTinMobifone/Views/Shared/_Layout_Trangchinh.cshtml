@@ -13,12 +13,14 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="images\logo\logo.png" width="150px"/>
+                <a asp-action="Index" asp-controller="Home">
+                    <img src="..\images\logo\logo.png" width="150px" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <a class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
@@ -46,9 +48,51 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CongThongTinMobifone - <a asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a>
+    <footer class="border-top footer text-muted bg-dark text-light">
+      
+        <div class="container text-center row">
+
+            <div class="col-md-4 row-cols-4">
+
+                <ul>
+                    <h3>Liên hệ</h3>
+                    <li>
+                        Hotline:
+                        <a href="tel: 077 924 9999">
+                            077 924 9999
+                        </a>
+                    </li>
+                    <li>
+                        Mail:
+                        <a href="mailto: mobifoneaglx@gmail.com"> Mobifoneaglx@gmail.com</a>
+                    </li>
+                    <li>
+                        Facebook:
+                        <a href="https://www.facebook.com/mobifonetinhangiang/">Mobifone An Giang</a>
+                    </li>
+                    <li>
+                        <a>Địa chỉ: 93, Trần Hưng Đạo, Mỹ Quý Long Xuyên, An Giang</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 row-cols-4"></div>
+            <div class="col-md-4 row-cols-4">
+                <h3 class="widget-title">Ứng dụng mobifone</h3>
+                <div class="is-divider small"></div>
+                <div class="textwidget custom-html-widget">
+                    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                    <a href="https://apps.apple.com/vn/app/my-mobifone/id719320091"><i class="fa fa-apple" style="font-size:36px;"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://play.google.com/store/apps/details?id=vms.com.vn.mymobifone">
+                        <i class="fa fa-android" style="font-size:36px"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                &copy; 2024 - CongThongTinMobifone - <a asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
