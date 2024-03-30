@@ -15,5 +15,6 @@ namespace CongThongTinMobifone.Data
         public DbSet<CongThongTinMobifone.Models.Number_Type>? Number_Type { get; set; }
         public DbSet<CongThongTinMobifone.Models.Phone_number>? Phone_number { get; set; }
         public DbSet<CongThongTinMobifone.Models.Package>? Package { get; set; }
+        public DbSet<CongThongTinMobifone.Models.Package_Cate>? Package_Cate { get; set; }
     }
 }

@@ -22,10 +22,19 @@ INSERT INTO Phone_number(Number, Number_TypeID, PostCateID, description) VALUES(
 INSERT INTO Phone_number(Number, Number_TypeID, PostCateID, description) VALUES(N'0923954079',N'NT003',N'PCT3',N'Thần tài lớn mang theo niềm vui lớn');
 INSERT INTO Phone_number(Number,Number_TypeID, PostCateID, description) VALUES(N'0793928888',N'NT006',N'PCT3',N'Tứ quý 8 mang lại sự nghiệp thăng tiến và sự hưng thịnh trường tồn mãi mãi');
 select * from Phone_number
+-- Dữ liệu bảng loại gói cước (Package_Cate)
+INSERT INTO Package_Cate (Package_CateID, Package_name) VALUES (N'G01',N'Gói cước gọi');
+INSERT INTO Package_Cate (Package_CateID, Package_name) VALUES (N'G02',N'Gói cước data');
+select * from Package_Cate
 
 -- Dữ liệu bảng gói cước (Package)
-INSERT INTO Package (Package_ID, Package_title, Package_content, Package_Cate, PostCateID, description) VALUES (N'',N'',N'',N'',N'',N'');
-
+INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost) VALUES (N'MFY',N'DK MFY 0799980067 GỬI 909',
+N'200GB/30 ngày. 
+Miễn phí truy cập FACEBOOK, YOUTUBE.
+Dùng chung cho nhóm tối đa 5 thành viên.',N'G02',N'PCT2','200.000 vnd');
+INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost) VALUES (N'MXH100',N'30GB/30 ngày',N'1GB data tốc độ cao/ngày.
+Miễn phí truy cập Facebook, Youtube, Tiktok.',N'G02',N'PCT2','100.000 vnd');
+select * from Package
 -- Dữ liệu bảng trang tin (Post)
 INSERT INTO Post (PostID, Post_title, Post_content, PostCateID, Date_created, Date_update, avatar) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
 

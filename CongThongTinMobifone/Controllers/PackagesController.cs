@@ -22,7 +22,7 @@ namespace CongThongTinMobifone.Controllers
         // GET: Packages
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Package.Include(p => p.PackageIDNavigation);
+            var applicationDbContext = _context.Package.Include(p => p.PackageCateIDNavigation).Include(p => p.PackageIDNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,6 +35,7 @@ namespace CongThongTinMobifone.Controllers
             }
 
             var package = await _context.Package
+                .Include(p => p.PackageCateIDNavigation)
                 .Include(p => p.PackageIDNavigation)
                 .FirstOrDefaultAsync(m => m.Package_ID == id);
             if (package == null)
@@ -48,6 +49,7 @@ namespace CongThongTinMobifone.Controllers
         // GET: Packages/Create
         public IActionResult Create()
         {
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID");
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
         }
@@ -57,7 +59,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Package_ID,Package_title,Package_Cate,Package_content,description,PostCateID")] Package package)
+        public async Task<IActionResult> Create([Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost")] Package package)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +67,7 @@ namespace CongThongTinMobifone.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
             return View(package);
         }
@@ -82,6 +85,7 @@ namespace CongThongTinMobifone.Controllers
             {
                 return NotFound();
             }
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
             return View(package);
         }
@@ -91,7 +95,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Package_ID,Package_title,Package_Cate,Package_content,description,PostCateID")] Package package)
+        public async Task<IActionResult> Edit(string id, [Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost")] Package package)
         {
             if (id != package.Package_ID)
             {
@@ -118,6 +122,7 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
             return View(package);
         }
@@ -131,6 +136,7 @@ namespace CongThongTinMobifone.Controllers
             }
 
             var package = await _context.Package
+                .Include(p => p.PackageCateIDNavigation)
                 .Include(p => p.PackageIDNavigation)
                 .FirstOrDefaultAsync(m => m.Package_ID == id);
             if (package == null)

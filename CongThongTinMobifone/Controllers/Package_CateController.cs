@@ -10,98 +10,87 @@ using CongThongTinMobifone.Models;
 
 namespace CongThongTinMobifone.Controllers
 {
-    public class HomeController : Controller
+    public class Package_CateController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ApplicationDbContext context)
+        public Package_CateController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Home
-        public IActionResult Contact()
-        {
-            return View(Contact);
-        }
-        public IActionResult Info()
-        {
-            return View(Info);
-        }
+        // GET: Package_Cate
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Post.Include(p => p.PostIDNavigation);
-            return View(await applicationDbContext.ToListAsync());
+              return _context.Package_Cate != null ? 
+                          View(await _context.Package_Cate.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Package_Cate'  is null.");
         }
 
-        // GET: Home/Details/5
+        // GET: Package_Cate/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Package_Cate == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post
-                .Include(p => p.PostIDNavigation)
-                .FirstOrDefaultAsync(m => m.PostID == id);
-            if (post == null)
+            var package_Cate = await _context.Package_Cate
+                .FirstOrDefaultAsync(m => m.Package_CateID == id);
+            if (package_Cate == null)
             {
                 return NotFound();
             }
 
-            return View(post);
+            return View(package_Cate);
         }
 
-        // GET: Home/Create
+        // GET: Package_Cate/Create
         public IActionResult Create()
         {
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
         }
 
-        // POST: Home/Create
+        // POST: Package_Cate/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update")] Post post)
+        public async Task<IActionResult> Create([Bind("Package_CateID,Package_name")] Package_Cate package_Cate)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(post);
+                _context.Add(package_Cate);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(package_Cate);
         }
 
-        // GET: Home/Edit/5
+        // GET: Package_Cate/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Package_Cate == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post.FindAsync(id);
-            if (post == null)
+            var package_Cate = await _context.Package_Cate.FindAsync(id);
+            if (package_Cate == null)
             {
                 return NotFound();
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(package_Cate);
         }
 
-        // POST: Home/Edit/5
+        // POST: Package_Cate/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update")] Post post)
+        public async Task<IActionResult> Edit(string id, [Bind("Package_CateID,Package_name")] Package_Cate package_Cate)
         {
-            if (id != post.PostID)
+            if (id != package_Cate.Package_CateID)
             {
                 return NotFound();
             }
@@ -110,12 +99,12 @@ namespace CongThongTinMobifone.Controllers
             {
                 try
                 {
-                    _context.Update(post);
+                    _context.Update(package_Cate);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PostExists(post.PostID))
+                    if (!Package_CateExists(package_Cate.Package_CateID))
                     {
                         return NotFound();
                     }
@@ -126,51 +115,49 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
-            return View(post);
+            return View(package_Cate);
         }
 
-        // GET: Home/Delete/5
+        // GET: Package_Cate/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.Post == null)
+            if (id == null || _context.Package_Cate == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post
-                .Include(p => p.PostIDNavigation)
-                .FirstOrDefaultAsync(m => m.PostID == id);
-            if (post == null)
+            var package_Cate = await _context.Package_Cate
+                .FirstOrDefaultAsync(m => m.Package_CateID == id);
+            if (package_Cate == null)
             {
                 return NotFound();
             }
 
-            return View(post);
+            return View(package_Cate);
         }
 
-        // POST: Home/Delete/5
+        // POST: Package_Cate/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Post == null)
+            if (_context.Package_Cate == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Post'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Package_Cate'  is null.");
             }
-            var post = await _context.Post.FindAsync(id);
-            if (post != null)
+            var package_Cate = await _context.Package_Cate.FindAsync(id);
+            if (package_Cate != null)
             {
-                _context.Post.Remove(post);
+                _context.Package_Cate.Remove(package_Cate);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PostExists(string id)
+        private bool Package_CateExists(string id)
         {
-          return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
+          return (_context.Package_Cate?.Any(e => e.Package_CateID == id)).GetValueOrDefault();
         }
     }
 }
