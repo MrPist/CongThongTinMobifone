@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -18,16 +19,52 @@
             @Html.DisplayFor(model => model.Post_title)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Post_content)
+            @Html.DisplayNameFor(model => model.Post_content1)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Post_content)
+            @Html.DisplayFor(model => model.Post_content1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Post_content2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Post_content2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Post_content3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Post_content3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Post_content4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Post_content4)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.avatar)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.avatar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.img1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.img1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.img2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.img2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.img3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.img3)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Date_created)

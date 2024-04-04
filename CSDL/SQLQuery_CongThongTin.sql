@@ -36,7 +36,7 @@ INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID,
 Miễn phí truy cập Facebook, Youtube, Tiktok.',N'G02',N'PCT2','100.000 vnd');
 select * from Package
 -- Dữ liệu bảng trang tin (Post)
-INSERT INTO Post (PostID, Post_title, Post_content, PostCateID, Date_created, Date_update, avatar) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
+INSERT INTO Post (PostID, Post_title, Post_content1, PostCateID, Date_created, Date_update, avatar) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
 
 																															Chào đón Năm Mới Giáp Thìn 2024, MobiFone An Giang triển khai chương trình khuyến mại “Mình Cùng Đón Giáp Thìn 2024! ” từ ngày 12/12/2023 đến 31/01/2024 Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình, như một lời chúc, một lời tri ân sâu sắc dành cho các khách hàng đã luôn tin yêu và đồng hành cùng MobiFone Tỉnh An Giang.
 
@@ -53,6 +53,7 @@ INSERT INTO Post (PostID, Post_title, Post_content, PostCateID, Date_created, Da
 																																24 giải ba: thẻ cào mệnh giá 50.000đ.
 																																100 giải khuyến khích: 1 hộp khẩu trang y tế.'
 ,N'PCT1','03/20/2024','03/20/2024','GIAPTHINH_2.jpg');
+INSERT INTO Post (PostID, Post_title, PostCateID, Post_content1, img1, Post_content2, img2, img3, Post_content3,Date_created, Date_update, avatar) VALUES (N'P001',N'',N'PCT1',N'',N'',N'',N'',N'',N'',N'',N'',N'');
 select * from Post
 
 
