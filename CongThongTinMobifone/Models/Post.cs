@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.CodeAnalysis.Options;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CongThongTinMobifone.Models
 {
@@ -14,14 +15,20 @@ namespace CongThongTinMobifone.Models
         [StringLength(250)]
         public string Post_title { get; set; }
         public string Post_content1 { get; set; }
+        [AllowNull]
         public string Post_content2 { get; set; }
+        [AllowNull]
         public string Post_content3 { get; set; }
+        [AllowNull]
         public string Post_content4 { get; set; }
         public string avatar { get; set; }
+        [AllowNull]
         [StringLength(255)]
         public string img1 { get; set; }
+        [AllowNull]
         [StringLength(255)]
         public string img2 { get; set; }
+        [AllowNull]
         [StringLength(255)]
         public string img3 { get; set; }
         public DateTime Date_created { get; set; }

@@ -36,7 +36,7 @@ INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID,
 Miễn phí truy cập Facebook, Youtube, Tiktok.',N'G02',N'PCT2','100.000 vnd');
 select * from Package
 -- Dữ liệu bảng trang tin (Post)
-INSERT INTO Post (PostID, Post_title, Post_content1, PostCateID, Date_created, Date_update, avatar) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
+INSERT INTO Post (PostID, Post_title, Post_content1, PostCateID, Date_created, Date_update, avatar, Post_content2, Post_content3, Post_content4, img1, img2, img3) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
 
 																															Chào đón Năm Mới Giáp Thìn 2024, MobiFone An Giang triển khai chương trình khuyến mại “Mình Cùng Đón Giáp Thìn 2024! ” từ ngày 12/12/2023 đến 31/01/2024 Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình, như một lời chúc, một lời tri ân sâu sắc dành cho các khách hàng đã luôn tin yêu và đồng hành cùng MobiFone Tỉnh An Giang.
 
@@ -52,8 +52,13 @@ INSERT INTO Post (PostID, Post_title, Post_content1, PostCateID, Date_created, D
 																																20 giải nhì: thẻ cào mệnh giá 100.000đ.
 																																24 giải ba: thẻ cào mệnh giá 50.000đ.
 																																100 giải khuyến khích: 1 hộp khẩu trang y tế.'
-,N'PCT1','03/20/2024','03/20/2024','GIAPTHINH_2.jpg');
-INSERT INTO Post (PostID, Post_title, PostCateID, Post_content1, img1, Post_content2, img2, img3, Post_content3,Date_created, Date_update, avatar) VALUES (N'P001',N'',N'PCT1',N'',N'',N'',N'',N'',N'',N'',N'',N'');
+,N'PCT1','03/20/2024','03/20/2024','GIAPTHINH_2.jpg','', '','','','','');
+INSERT INTO Post (PostID, Post_title, PostCateID, Post_content1, img1, Post_content2, img2, img3, Post_content3, Post_content4,Date_created, Date_update, avatar) VALUES (N'P002',N'Trọn gói Data - Thả ga gom quà',N'PCT1',N'Trong tháng 3 này, MyPoint triển khai siêu khuyến mại: tích ngay 5% giá trị gói cước, nhận phiếu quà tặng tới 50K khi đăng ký tại MyPoint.
+
+Tiếp nối các chương trình khuyến mại đặc sắc từ tháng 2, MyPoint tiếp tục triển khai chương trình tích điểm gói cước và tặng phiếu giảm giá Shopee, Bách Hóa Xanh cho khách hàng đăng ký gói cước trên MyPoint - Ứng dụng tích điểm đổi quà do MobiFone đồng sáng lập.',N'Trọn gói Data - Thả ga gom quà.png',N'Theo đó, đẩy thêm những giá trị gia tăng cho dịch vụ viễn thông, MobiFone triển khai các chương trình khuyến mại gói cước thường xuyên hàng tháng. Trong tháng 3, khách hàng mua gói cước trên ứng dụng MyPoint sẽ được nhận ưu đãi: Tích 5% điểm MyPoint trên giá trị gói cước MXH120, KC90, PT70, V90. Tặng 30.000Đ - 50.000Đ Voucher Shopee/ Bách Hóa Xanh cho khách hàng may mắn khi đăng ký bất kỳ gói cước dài hạn trên MyPoint.
+Điểm MyPoint có thể được sử dụng linh hoạt để đổi dùng như tiền mặt cho các dịch vụ viễn thông hoặc voucher giảm giá triền trực tiếp trên hóa đơn từ hơn 300 thương hiệu đối tác (1 điểm MyPoint = 1 VNĐ). Ngoài ra, khách hàng có thể dễ dàng tích lũy điểm MyPoint từ việc nạp thẻ, mua sắm online.',N'',N'',N'Chương trình áp dụng từ ngày 14/03 - 25/03/2024. 
+
+Hình thức đăng ký gói cước: PTE [khoảng cách] TÊN GÓI CƯỚC gửi 9084. Ví dụ: Đăng ký gói cước KC90, soạn cú pháp: PTE KC90 gửi 9084.',N'',N'04/05/2024',N'',N'Trọn gói Data - Thả ga gom quà.png');
 select * from Post
 
 

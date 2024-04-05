@@ -36,107 +36,56 @@
         <span class="carousel-control-next-icon"></span>
     </button>
 </div>
-@foreach (var item in Model)
-{
-    <div class="card" style="width:400px">
-        <a asp-action="Details" asp-route-id="@item.PostID">
-            <img class="card-img-top w-100" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
-            <div class="card-body">
-                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Post_title)</h4>
+
+
+<div class="col-12">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="p-title ml-md-1"><b>BÀI VIẾT GẦN ĐÂY</b></h4>
+                    @foreach (var item in Model)
+                    {
+                        <div class="link row oflow-hidden pos-relative mb-md-2 mb-1 dplay-block ml-md-1">
+                            <div class="col-md-4 col-12 pl-md-0 pb-sm-2" style="height:auto">
+                                <a asp-action="Details" asp-route-id="@item.PostID">
+                                    <img class="card-img-top" width="300px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-12 pt-sm-2 pt-md-0">
+                                <div class="min-h-100x">
+                                    <h5 class="font-weight-bold">@item.Post_title</h5>
+                                    <p>@(item.Post_content1.Length >= 150 ? item.Post_content1.Substring(0, 150) : item.Post_content1 + "..")</p>
+                                    <ul>
+                                        <li class="latest"><span class="fa fa-calendar mr-1" style="color:#777777"></span>@String.Format("{0:dd-MM-yyyy}", item.Date_created)</li>
+                                        @* <li class="latest"><span class="fa fa-tags mr-1" style="color:#777777"></span>@item.Tbl_Tags.FirstOrDefault().TagName</li> *@
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <!-- container -->
+                <div class="col-md-4">
+                    <h4 class="p-title"><b>PHỔ BIẾN</b></h4>
+                    @foreach (var item in Model)
+                    {
+                        <div class="card" style="width:200px">
+                            <a asp-action="Details" asp-route-id="@item.PostID">
+                                <img class="card-img-top w-100" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
+                            
+                                <div class="ml-120 min-h-100x smallpop">
+                                    <h5 class="poppost">@item.Post_title</h5>
+                                    <h6 class="color-lite-black pt-2 mb-1">
+                                        <i class="fa fa-calendar-o mr-1"></i>@String.Format("{0:dd/MM/yyyy}", item.Date_created)
+                                    </h6>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
-        </a>
-    </div>
-}
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content4)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.avatar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date_created)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date_update)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostIDNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_content1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_content2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_content3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post_content4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.avatar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.img1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.img2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.img3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_created)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_update)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostIDNavigation.PostCateID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        </div>
+    </section>
+</div>
