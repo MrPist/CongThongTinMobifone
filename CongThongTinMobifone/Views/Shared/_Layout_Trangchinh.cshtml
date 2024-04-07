@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title src="~\images\logo\logo.png" width="100px">Cổng thông tin điện tử Mobifone An Giang</title>
+    <title src="~/images/logo/Logo_new.png" width="100px"> Cổng thông tin điện tử Mobifone An Giang</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CongThongTinMobifone.styles.css" asp-append-version="true" />
@@ -12,34 +12,39 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="container">
                 <a asp-action="Index" asp-controller="Home">
-                    <img src="~/images/logo/logo.png" width="150px" />
+                    <img src="~/images/logo/Logo_new.png" width="250px" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
                 <a class="navbar-collapse collapse d-sm-inline-flex justify-content-between box-shadow">
+                    <form class="navbar-nav flex-grow-1" asp-action="SortByName">
+                        <a>
+                            <input class="form-control " type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm" />
+                        </a> 
+                        <a>
+                            <input class="btn btn-dark " type="submit" value="Tìm" />
+                        </a>
+                    </form>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Home" asp-action="Index">Trang chủ</a>
+                            <a class="nav-link text-primary"  asp-controller="Home" asp-action="Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Phone_number" asp-action="Index">Sim số</a>
+                            <a class="nav-link text-primary" asp-controller="Phone_number" asp-action="Index">Sim số</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Packages" asp-action="Index">Gói cước</a>
+                            <a class="nav-link text-primary" asp-controller="Packages" asp-action="Index">Gói cước</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Home" asp-action="Info">Giới thiệu</a>
+                            <a class="nav-link text-primary" asp-controller="Home" asp-action="Info">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Home" asp-action="Contact">Liên hệ</a>
+                            <a class="nav-link text-primary" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
-                </div>
+                </a>
             </div>
         </nav>
     </header>
@@ -48,6 +53,7 @@
             @RenderBody()
         </main>
     </div>
+    
     <footer class="border-top text-muted bg-dark text-light">
         <div class="container">
       
@@ -70,10 +76,10 @@
                     <ul>
                         Facebook:
                         <a href="https://www.facebook.com/mobifonetinhangiang/">Mobifone An Giang</a>
-                        </ul>
-                        <ul>
-                            <a>Địa chỉ: 93, Trần Hưng Đạo, phường Mỹ Quý, TP.Long Xuyên, An Giang</a>
-                        </ul>
+                    </ul>
+                    <ul>
+                        <a>Địa chỉ: 93, Trần Hưng Đạo, phường Mỹ Quý, TP.Long Xuyên, An Giang</a>
+                    </ul>
 
                 </div>
                 <div class="col-6 col-md-4">

@@ -17,6 +17,8 @@ namespace CongThongTinMobifone.Models
         public string PostCateID { get; set; }
         [StringLength(25)]
         public string cost { get; set; }
+        
+        public string link { get; set; }
         // --- khóa ngoại PostCate-Package
         [ForeignKey(nameof(PostCateID))]
         [InverseProperty(nameof(Post_cate.Package))]

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CongThongTinMobifone.Models.Post>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sort by name";
 }
 
 <!-- Carousel -->
@@ -36,7 +36,8 @@
     </button>
 </div>
 
-
+<h1>Thông tin tìm kiếm</h1>
+<hr />
 <div class="col-12">
     <section>
         <div class="container">
@@ -73,7 +74,7 @@
                         <div class="card" style="width:200px">
                             <a asp-action="Details" asp-route-id="@item.PostID">
                                 <img class="card-img-top w-100" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
-                            
+
                                 <div class="ml-120 min-h-100x smallpop">
                                     <h5 class="poppost">@item.Post_title</h5>
                                     <h6 class="color-lite-black pt-2 mb-1">

@@ -59,7 +59,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost")] Package package)
+        public async Task<IActionResult> Create([Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost,link")] Package package)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost")] Package package)
+        public async Task<IActionResult> Edit(string id, [Bind("Package_ID,Package_title,Package_CateID,Package_content,PostCateID,cost,link")] Package package)
         {
             if (id != package.Package_ID)
             {

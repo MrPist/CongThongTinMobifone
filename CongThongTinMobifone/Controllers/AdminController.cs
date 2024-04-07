@@ -10,23 +10,23 @@ using CongThongTinMobifone.Models;
 
 namespace CongThongTinMobifone.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Home
+        // GET: Admin
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Post.Include(p => p.PostIDNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Home/Details/5
+        // GET: Admin/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Post == null)
@@ -45,14 +45,14 @@ namespace CongThongTinMobifone.Controllers
             return View(post);
         }
 
-        // GET: Home/Create
+        // GET: Admin/Create
         public IActionResult Create()
         {
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
         }
 
-        // POST: Home/Create
+        // POST: Admin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -69,7 +69,7 @@ namespace CongThongTinMobifone.Controllers
             return View(post);
         }
 
-        // GET: Home/Edit/5
+        // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Post == null)
@@ -86,7 +86,7 @@ namespace CongThongTinMobifone.Controllers
             return View(post);
         }
 
-        // POST: Home/Edit/5
+        // POST: Admin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -122,7 +122,7 @@ namespace CongThongTinMobifone.Controllers
             return View(post);
         }
 
-        // GET: Home/Delete/5
+        // GET: Admin/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Post == null)
@@ -141,7 +141,7 @@ namespace CongThongTinMobifone.Controllers
             return View(post);
         }
 
-        // POST: Home/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -163,14 +163,6 @@ namespace CongThongTinMobifone.Controllers
         private bool PostExists(string id)
         {
           return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
-        }
-        public IActionResult Info()
-        {
-            return View(Info);
-        }
-        public IActionResult Contact()
-        {
-            return View(Contact);
         }
         public async Task<IActionResult> SortByName(string keyword)
         {
