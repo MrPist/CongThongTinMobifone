@@ -170,5 +170,10 @@ namespace CongThongTinMobifone.Controllers
         {
           return (_context.Package?.Any(e => e.Package_ID == id)).GetValueOrDefault();
         }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var package = _context.Package.Where(p => p.Package_ID.Contains(keyword));
+            return View(await package.ToListAsync());
+        }
     }
 }

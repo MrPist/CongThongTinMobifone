@@ -46,7 +46,7 @@ namespace CongThongTinMobifone.Controllers
         }
 
         // GET: Home/Create
-        public IActionResult Create()
+        /*public IActionResult Create()
         {
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
@@ -158,7 +158,7 @@ namespace CongThongTinMobifone.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         private bool PostExists(string id)
         {

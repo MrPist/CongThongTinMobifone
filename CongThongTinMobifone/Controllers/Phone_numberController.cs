@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CongThongTinMobifone.Data;
+using CongThongTinMobifone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CongThongTinMobifone.Data;
-using CongThongTinMobifone.Models;
 
 namespace CongThongTinMobifone.Controllers
 {
@@ -22,6 +18,7 @@ namespace CongThongTinMobifone.Controllers
         // GET: Phone_number
         public async Task<IActionResult> Index()
         {
+            
             var applicationDbContext = _context.Phone_number.Include(p => p.Number_TypeIDNavigation).Include(p => p.Phone_numberIDNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -29,6 +26,7 @@ namespace CongThongTinMobifone.Controllers
         // GET: Phone_number/Details/5
         public async Task<IActionResult> Details(string id)
         {
+            
             if (id == null || _context.Phone_number == null)
             {
                 return NotFound();
@@ -45,7 +43,7 @@ namespace CongThongTinMobifone.Controllers
 
             return View(phone_number);
         }
-
+        /*
         // GET: Phone_number/Create
         public IActionResult Create()
         {
@@ -161,19 +159,25 @@ namespace CongThongTinMobifone.Controllers
             {
                 _context.Phone_number.Remove(phone_number);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         private bool Phone_numberExists(string id)
         {
-          return (_context.Phone_number?.Any(e => e.Number == id)).GetValueOrDefault();
+            return (_context.Phone_number?.Any(e => e.Number == id)).GetValueOrDefault();
         }
         public async Task<IActionResult> SortByName(string keyword)
         {
+            
             var phone = _context.Phone_number.Where(p => p.Number.Contains(keyword));
             return View(await phone.ToListAsync());
         }
+        public IActionResult ChonSo() 
+        {
+            return View();
+        }
+
     }
 }

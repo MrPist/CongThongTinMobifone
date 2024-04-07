@@ -1,5 +1,48 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CongThongTinMobifone.Models.Phone_number>
+
 @{
+    ViewData["Title"] = "Sort By Number";
 }
+
+<h1 class="text-center">GÓI CƯỚC</h1>
+<hr />
+<br />
+<h3 class="text-danger text-center">Gói cước giá rẻ, dung lượng khủng, được yêu thích nhất hiện nay !</h3>
+<div class="container mt-2">
+    <table class="table table-striped">
+        <thead>
+            <tr class="bg-primary text-light">
+                <th>
+                    @Html.DisplayName("Số Thuê Bao")
+                </th>
+                <th>
+                    @Html.DisplayName("Loại Thuê Bao")
+                </th>
+                <th>
+                    @Html.DisplayName("Mô Tả")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-outline-primary text-danger" asp-action="ChonSo" asp-route-id="@item.Number">Chọn số</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
