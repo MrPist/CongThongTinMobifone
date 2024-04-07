@@ -28,12 +28,12 @@ INSERT INTO Package_Cate (Package_CateID, Package_name) VALUES (N'G02',N'Gói c�
 select * from Package_Cate
 
 -- Dữ liệu bảng gói cước (Package)
-INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost) VALUES (N'MFY',N'DK MFY 0799980067 GỬI 909',
+INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost, link) VALUES (N'MFY',N'DK MFY 0799980067 GỬI 909',
 N'200GB/30 ngày. 
 Miễn phí truy cập FACEBOOK, YOUTUBE.
-Dùng chung cho nhóm tối đa 5 thành viên.',N'G02',N'PCT2','200.000 vnd');
-INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost) VALUES (N'MXH100',N'30GB/30 ngày',N'1GB data tốc độ cao/ngày.
-Miễn phí truy cập Facebook, Youtube, Tiktok.',N'G02',N'PCT2','100.000 vnd');
+Dùng chung cho nhóm tối đa 5 thành viên.',N'G02',N'PCT2','200.000 vnd', N'https://congtacvien.mobifone.vn/goi-cuoc-uu-dai/chi-tiet-goi-cuoc-MFY?rf=925ZXJ');
+INSERT INTO Package (Package_ID, Package_title, Package_content, Package_CateID, PostCateID, cost, link) VALUES (N'MXH100',N'30GB/30 ngày',N'1GB data tốc độ cao/ngày.
+Miễn phí truy cập Facebook, Youtube, Tiktok.',N'G02',N'PCT2','100.000 vnd', N'https://congtacvien.mobifone.vn/goi-cuoc-uu-dai/chi-tiet-goi-cuoc-MXH100?rf=925ZXJ');
 select * from Package
 -- Dữ liệu bảng trang tin (Post)
 INSERT INTO Post (PostID, Post_title, Post_content1, PostCateID, Date_created, Date_update, avatar, Post_content2, Post_content3, Post_content4, img1, img2, img3) VALUES (N'P001',N'Mình cùng đón Giáp Thìn - 2024',N'Từ ngày 12/12/2023 đến ngày 31/01/2024, MobiFone Tỉnh An Giang triển khai chương trình khuyến mại “Mình cùng đón Giáp Thìn – 2024!” Khách hàng hòa mạng mới hoặc đăng ký mới/gia hạn bất kỳ gói cước Data nào của MobiFone trong thời gian diễn ra chương trình .
