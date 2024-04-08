@@ -1,0 +1,33 @@
+﻿@model CongThongTinMobifone.Models.Number_Type
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Bạn có chắc sẽ xóa loại sim này không?</h3>
+<div>
+    <h4>Thể loại sim</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Number_TypeID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Trở lại</a>
+    </form>
+</div>

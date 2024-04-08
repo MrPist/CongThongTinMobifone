@@ -1,0 +1,36 @@
+﻿@model CongThongTinMobifone.Models.Number_Type
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
+}
+
+<h1>Chi tiết</h1>
+
+<div>
+    <h4>Thể loại sim</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Number_TypeID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Number_TypeID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Number_TypeID">Edit</a> |
+    <a asp-action="Index">Trở lại</a>
+</div>

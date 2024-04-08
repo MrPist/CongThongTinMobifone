@@ -1,0 +1,28 @@
+﻿@model CongThongTinMobifone.Models.Package_Cate
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
+}
+
+<h1>Xóa</h1>
+
+<h3>Bạn có chắc sẽ xóa thể loại gói cước này không?</h3>
+<div>
+    <h4>Package_Cate</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Package_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Package_name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Package_CateID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Trở lại</a>
+    </form>
+</div>

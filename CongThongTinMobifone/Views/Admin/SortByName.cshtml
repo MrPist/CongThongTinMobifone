@@ -1,105 +1,107 @@
 ﻿@model IEnumerable<CongThongTinMobifone.Models.Post>
 
 @{
-    ViewData["Title"] = "Sort By Name";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>THÔNG TIN TÌM KIẾM</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PostID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post_content4)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.avatar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date_created)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date_update)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostIDNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container-fluid px-4">
+    <h1>Thông tin tìm kiếm</h1>
+    <hr />
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_content1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_content2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_content3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_content4)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.avatar)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.img1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.img2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.img3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_created)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_update)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostIDNavigation.PostCateID)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post_title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post_content1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post_content2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post_content3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post_content4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.avatar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.img1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.img2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.img3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date_created)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date_update)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostIDNavigation)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_content1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_content2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_content3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Post_content4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.avatar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.img1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.img2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.img3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_created)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_update)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostIDNavigation.PostCateID)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
+                        <br /><a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
+                        <br /><a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

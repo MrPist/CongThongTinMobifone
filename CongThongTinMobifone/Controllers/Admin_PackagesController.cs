@@ -7,26 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CongThongTinMobifone.Data;
 using CongThongTinMobifone.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CongThongTinMobifone.Controllers
 {
-    public class PackagesController : Controller
+    [Authorize]
+    public class Admin_PackagesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PackagesController(ApplicationDbContext context)
+        public Admin_PackagesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Packages
+        // GET: Admin_Packages
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Package.Include(p => p.PackageCateIDNavigation).Include(p => p.PackageIDNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Packages/Details/5
+        // GET: Admin_Packages/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Package == null)
@@ -46,7 +48,7 @@ namespace CongThongTinMobifone.Controllers
             return View(package);
         }
 
-        /*// GET: Packages/Create
+        // GET: Admin_Packages/Create
         public IActionResult Create()
         {
             ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID");
@@ -54,7 +56,7 @@ namespace CongThongTinMobifone.Controllers
             return View();
         }
 
-        // POST: Packages/Create
+        // POST: Admin_Packages/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -72,7 +74,7 @@ namespace CongThongTinMobifone.Controllers
             return View(package);
         }
 
-        // GET: Packages/Edit/5
+        // GET: Admin_Packages/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Package == null)
@@ -90,7 +92,7 @@ namespace CongThongTinMobifone.Controllers
             return View(package);
         }
 
-        // POST: Packages/Edit/5
+        // POST: Admin_Packages/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -127,7 +129,7 @@ namespace CongThongTinMobifone.Controllers
             return View(package);
         }
 
-        // GET: Packages/Delete/5
+        // GET: Admin_Packages/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Package == null)
@@ -147,7 +149,7 @@ namespace CongThongTinMobifone.Controllers
             return View(package);
         }
 
-        // POST: Packages/Delete/5
+        // POST: Admin_Packages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -165,7 +167,7 @@ namespace CongThongTinMobifone.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        */
+
         private bool PackageExists(string id)
         {
           return (_context.Package?.Any(e => e.Package_ID == id)).GetValueOrDefault();

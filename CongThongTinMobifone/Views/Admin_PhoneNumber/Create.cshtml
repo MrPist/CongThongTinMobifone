@@ -1,14 +1,15 @@
 ﻿@model CongThongTinMobifone.Models.Phone_number
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Tạo mới</h1>
 
-<h4>Phone_number</h4>
+<h4>Sim số</h4>
 <hr />
 <div class="row">
+    <div class="col-md-4"></div>
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -38,7 +39,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Trở lại</a>
 </div>
 
 @section Scripts {

@@ -1,0 +1,51 @@
+﻿ @model IEnumerable<CongThongTinMobifone.Models.Phone_number>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Sim số vừa được tìm kiếm</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_TypeIDNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone_numberIDNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Number_TypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone_numberIDNavigation.PostCateID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Number">Edit</a> |
+                    <a asp-action="Details" asp-controller="Phone_number" asp-route-id="@item.Number">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Number">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
