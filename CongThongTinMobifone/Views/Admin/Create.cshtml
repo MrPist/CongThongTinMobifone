@@ -55,17 +55,89 @@
             </div>
             <div class="form-group">
                 <label asp-for="img1" class="control-label"></label>
-                <input asp-for="img1" type="file" class="form-control" />
+                <br />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <input type="radio" id="radioText1" name="inputType" /> Không nhập
+                <br>
+                <input type="radio" id="radioFile1" name="inputType" /> Nhập file
+                <br>
+                <input class="form-control" asp-for="img1" type="text" id="myText1" style="display: none;" value="Không" />
+                <input class="form-control" asp-for="img1" type="file" id="myFile1" style="display: none;" value="Không" />
+
+                <script>
+                    $(document).ready(function () {
+                        $('#radioText1').change(function () {
+                            if (this.checked) {
+                                $('#myText1').show();
+                                $('#myFile1').hide();
+                            }
+                        });
+                        $('#radioFile1').change(function () {
+                            if (this.checked) {
+                                $('#myFile1').show();
+                                $('#myText1').hide();
+                            }
+                        });
+                    });
+                </script>
                 <span asp-validation-for="img1" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="img2" class="control-label"></label>
-                <input asp-for="img2" type="file" class="form-control" />
+                <br />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <input type="radio" id="radioText2" name="inputType" /> Không nhập
+                <br>
+                <input type="radio" id="radioFile2" name="inputType" /> Nhập file
+                <br>
+                <input class="form-control" asp-for="img2" type="text" id="myText2" style="display: none;" value="Không" />
+                <input class="form-control" asp-for="img2" type="file" id="myFile2" style="display: none;" value="Không" />
+                
+                <script>
+                    $(document).ready(function () {
+                        $('#radioText2').change(function () {
+                            if (this.checked) {
+                                $('#myText2').show();
+                                $('#myFile2').hide();
+                            }
+                        });
+                        $('#radioFile2').change(function () {
+                            if (this.checked) {
+                                $('#myFile2').show();
+                                $('#myText2').hide();
+                            }
+                        });
+                    });
+                </script>
                 <span asp-validation-for="img2" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="img3" class="control-label"></label>
-                <input asp-for="img3" type="file" class="form-control" />
+                <br />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <input type="radio" id="radioText3" name="inputType" /> Không nhập
+                <br>
+                <input type="radio" id="radioFile3" name="inputType" /> Nhập file
+                <br>
+                <input class="form-control" asp-for="img3" type="text" id="myText3" style="display: none;" value="Không" />
+                <input class="form-control" asp-for="img3" type="file" id="myFile3" style="display: none;" value="Không" />
+
+                <script>
+                    $(document).ready(function () {
+                        $('#radioText3').change(function () {
+                            if (this.checked) {
+                                $('#myText3').show();
+                                $('#myFile3').hide();
+                            }
+                        });
+                        $('#radioFile3').change(function () {
+                            if (this.checked) {
+                                $('#myFile3').show();
+                                $('#myText3').hide();
+                            }
+                        });
+                    });
+                </script>
                 <span asp-validation-for="img3" class="text-danger"></span>
             </div>
             <div class="form-group">

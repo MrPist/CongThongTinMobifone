@@ -16,16 +16,17 @@
                         @Html.DisplayFor(model => model.Post_title)
                     </h1>
                     <p class="text-justify"> @Html.DisplayFor(model => model.Post_content1)</p>
-                    @if (Model.img1 != "" && Model.img1 != " ")
+                    @if (Model.img1 != "" && Model.img1 != " " && Model.img1 != "Không")
                     {
                         <img class="rounded mx-auto d-block" src="~/images/Post_avt/@Html.DisplayFor(model => model.img1)" />
                     }
                     <p class ="text-justify"> @Html.DisplayFor(model => model.Post_content2)</p>
-                    @if(Model.img2 != "" && Model.img2 != " "){
+                    @if (Model.img2 != "" && Model.img2 != " " && Model.img2 != "Không")
+                    {
                         <img class="rounded mx-auto d-block" src="~/images/Post_avt/@Html.DisplayFor(model => model.img2)" />
                     }
                     <p class="text-justify"> @Html.DisplayFor(model => model.Post_content3)</p>
-                    @if (Model.img3 != "" && Model.img3 != " ")
+                    @if (Model.img3 != "" && Model.img3 != " " && Model.img3 != "Không")
                     {
                         <img class="rounded mx-auto d-block" src="~/images/Post_avt/@Html.DisplayFor(model => model.img3)" />
                     }

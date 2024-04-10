@@ -51,8 +51,8 @@ namespace CongThongTinMobifone.Controllers
         // GET: Admin_Packages/Create
         public IActionResult Create()
         {
-            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID");
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_name");
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name");
             return View();
         }
 
@@ -69,8 +69,8 @@ namespace CongThongTinMobifone.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_name", package.Package_CateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", package.PostCateID);
             return View(package);
         }
 
@@ -87,8 +87,8 @@ namespace CongThongTinMobifone.Controllers
             {
                 return NotFound();
             }
-            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_name", package.Package_CateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", package.PostCateID);
             return View(package);
         }
 
@@ -124,8 +124,8 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_CateID", package.Package_CateID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", package.PostCateID);
+            ViewData["Package_CateID"] = new SelectList(_context.Package_Cate, "Package_CateID", "Package_name", package.Package_CateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", package.PostCateID);
             return View(package);
         }
 

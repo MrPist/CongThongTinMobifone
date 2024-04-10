@@ -76,16 +76,37 @@
                     @Html.DisplayFor(modelItem => item.Post_content4)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.avatar)
+                    <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.img1)
+                    @if (item.img1 != "" && item.img1 != " " && item.img1 != "Không")
+                    {
+                            <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img1)" />
+                    }
+                    else
+                    {
+                            
+                    }
+                    </td>
+                <td>
+                    @if (item.img2 != "" && item.img2 != " " && item.img2 != "Không")
+                    {
+                        <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img2)" />
+                    }
+                    else
+                    {
+                            
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.img2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.img3)
+                    @if (item.img3 != "" && item.img3 != " " && item.img3 != "Không")
+                    {
+                        <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img3)" />
+                    }
+                    else
+                    {
+                            
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date_created)

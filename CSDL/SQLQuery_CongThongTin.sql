@@ -59,6 +59,18 @@ Tiếp nối các chương trình khuyến mại đặc sắc từ tháng 2, MyP
 Điểm MyPoint có thể được sử dụng linh hoạt để đổi dùng như tiền mặt cho các dịch vụ viễn thông hoặc voucher giảm giá triền trực tiếp trên hóa đơn từ hơn 300 thương hiệu đối tác (1 điểm MyPoint = 1 VNĐ). Ngoài ra, khách hàng có thể dễ dàng tích lũy điểm MyPoint từ việc nạp thẻ, mua sắm online.',N'',N'',N'Chương trình áp dụng từ ngày 14/03 - 25/03/2024. 
 
 Hình thức đăng ký gói cước: PTE [khoảng cách] TÊN GÓI CƯỚC gửi 9084. Ví dụ: Đăng ký gói cước KC90, soạn cú pháp: PTE KC90 gửi 9084.',N'',N'04/05/2024',N'',N'Trọn gói Data - Thả ga gom quà.png');
+INSERT INTO Post (PostID, Post_title, PostCateID, Post_content1, img1, Post_content2, img2, img3, Post_content3, Post_content4,Date_created, Date_update, avatar) VALUES (N'P003',N'Mừng 8/3 - Nhận quà cực đã từ MyPoint',N'PCT1',
+N'Mừng 8/3, MyPoint có quà siêu hấp dẫn dành cho người dùng trị giá lên đến 830K từ ưu đãi trang sức, gia dụng tới vận chuyển.',N'',N'Quen thuộc tại thị trường Việt Nam những năm gần đây, MyPoint được biết đến là ứng dụng nổi bật trong việc tích điểm và đổi quà hấp dẫn. Điểm MyPoint có giá trị quy đổi khi khách hàng mua sắm, nạp thẻ điện thoại, đổi ưu đãi hoặc voucher hot, với mỗi điểm tương đương với 1 đồng. MyPoint sử dụng một loại điểm chung duy nhất tại hơn 300 thương hiệu nổi tiếng, mang lại sự tiện lợi không nhỏ cho nhu cầu tích điểm mua sắm của khách hàng mọi lúc, mọi nơi.',N'Mung8-3.png',N'',N'Theo đó, mừng ngày Quốc tế phụ nữ 8/3, MyPoint dành tặng tất cả khách hàng mới đăng ký gói quà tặng trị giá 830.000đ gồm:
+
+Ưu đãi giảm 800K trang sức cưới Hera
+Ưu đãi giảm 30K cho đơn không giới hạn gia dụng Midimori
+Ưu đãi từ 50k - 150k đơn vận chuyển Lalamove ',N'Lưu ý: Hạn cuối nhận quà là đến hết ngày 10/3, vì vậy hãy nhanh tay đăng ký để không bỏ lỡ cơ hội này bằng cách:
+
+Bước 1: Tải ứng dụng tại CHPlay/Appstore
+Bước 2: Đăng ký bằng số điện thoại MobiFone
+Bước 3: Truy cập chương trình “Vui nhập hội” tại trang chủ và thực hiện “Điểm danh nhận quà” 
+Đặc biệt, ngoài những phần quà trên, bạn còn có cơ hội rinh điểm thưởng mỗi ngày và nhận voucher trị giá lên đến 1,2 Triệu từ kho thưởng trị giá 90 Triệu khi tham gia làm nhiệm vụ mỗi ngày tại chương trình “Vui nhập hội - chia thưởng 90 Triệu đồng. ',
+N'04/10/2024',N'',N'Mung8-3.png');
 select * from Post
 
 

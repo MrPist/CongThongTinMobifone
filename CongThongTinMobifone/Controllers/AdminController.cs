@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CongThongTinMobifone.Data;
 using CongThongTinMobifone.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CongThongTinMobifone.Controllers
 {
@@ -50,24 +51,26 @@ namespace CongThongTinMobifone.Controllers
         // GET: Admin/Create
         public IActionResult Create()
         {
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name");
             return View();
         }
 
         // POST: Admin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PostID,PostCateID,Post_title,Post_content1,Post_content2,Post_content3,Post_content4,avatar,img1,img2,img3,Date_created,Date_update")] Post post)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
             return View(post);
         }
 
@@ -84,7 +87,7 @@ namespace CongThongTinMobifone.Controllers
             {
                 return NotFound();
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
             return View(post);
         }
 
@@ -120,7 +123,7 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
             return View(post);
         }
 
