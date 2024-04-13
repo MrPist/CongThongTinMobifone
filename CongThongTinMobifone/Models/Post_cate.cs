@@ -13,10 +13,13 @@ namespace CongThongTinMobifone.Models
         }
         [Key]
         [StringLength(50)]
+        [Display(Name ="Thể loại tin")]
         public string PostCateID { get; set; }
         [StringLength(100)]
+        [Display(Name ="Tên loại")]
         public string Name { get; set; }
         [StringLength(150)]
+        [Display(Name = "Mô tả")]
         public string Description { get; set; }
 
         // --- Khóa ngoại Postcate-Post

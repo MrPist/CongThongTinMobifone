@@ -19,6 +19,7 @@
                 @Html.DisplayNameFor(model => model.Content)
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,8 +36,10 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Number_TypeID">Edit</a> |
-                    <br /><a asp-action="Delete" asp-route-id="@item.Number_TypeID">Delete</a>
+                    <a class="text-danger" asp-action="Edit" asp-route-id="@item.Number_TypeID">Edit</a>
+                </td>
+                <td>
+                    <a class="text-info" asp-action="Delete" asp-route-id="@item.Number_TypeID">Delete</a>
                 </td>
             </tr>
         }

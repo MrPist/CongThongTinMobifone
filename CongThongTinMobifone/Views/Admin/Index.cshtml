@@ -49,8 +49,10 @@
                     @Html.DisplayNameFor(model => model.Date_update)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PostIDNavigation)
+                    @Html.DisplayName("Thể loại tin")
                 </th>
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -81,7 +83,7 @@
                 <td>
                     @if (item.img1 != "" && item.img1 != " " && item.img1 != "Không")
                     {
-                            <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img1)" />
+                            <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img1)" />
                     }
                     else
                     {
@@ -91,7 +93,7 @@
                 <td>
                     @if (item.img2 != "" && item.img2 != " " && item.img2 != "Không")
                     {
-                        <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img2)" />
+                        <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img2)" />
                     }
                     else
                     {
@@ -101,7 +103,7 @@
                 <td>
                     @if (item.img3 != "" && item.img3 != " " && item.img3 != "Không")
                     {
-                        <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img3)" />
+                        <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img3)" />
                     }
                     else
                     {
@@ -115,12 +117,16 @@
                     @Html.DisplayFor(modelItem => item.Date_update)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PostIDNavigation.PostCateID)
+                    @Html.DisplayFor(modelItem => item.PostIDNavigation.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
-                    <a asp-action="Details" asp-controller="Home" asp-route-id="@item.PostID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.PostID" class="text-danger">Edit</a>
+                </td>
+                <td>
+                    <a class="text-warning" asp-action="Details" asp-controller="Home" asp-route-id="@item.PostID">Details</a>
+                </td>
+                <td>
+                    <a class="text-info" asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
                 </td>
             </tr>
     }

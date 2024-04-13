@@ -19,11 +19,13 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Number_TypeIDNavigation)
+                @Html.DisplayName("Loại số")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone_numberIDNavigation)
+                @Html.DisplayName("Thể loại tin")
             </th>
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -37,15 +39,19 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Number_TypeID)
+                @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Phone_numberIDNavigation.PostCateID)
+                @Html.DisplayFor(modelItem => item.Phone_numberIDNavigation.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Number">Edit</a> |
-                <a asp-action="Details" asp-controller="Phone_number" asp-route-id="@item.Number">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Number">Delete</a>
+                <a class="text-danger" asp-action="Edit" asp-route-id="@item.Number">Edit</a>
+            </td>
+            <td>
+                <a class="text-warning" asp-action="Details" asp-controller="Phone_number" asp-route-id="@item.Number">Details</a>
+            </td>
+            <td>
+                <a class="text-info" asp-action="Delete" asp-route-id="@item.Number">Delete</a>
             </td>
         </tr>
 }

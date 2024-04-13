@@ -164,9 +164,10 @@ namespace CongThongTinMobifone.Controllers
         {
           return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
         }
-        public IActionResult Info()
+        public async Task<IActionResult> InfoAsync()
         {
-            return View(Info);
+            var applicationDbContext = _context.Post.Include(p => p.PostIDNavigation);
+            return View(await applicationDbContext.ToListAsync());
         }
         public IActionResult Contact()
         {

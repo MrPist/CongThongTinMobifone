@@ -11,10 +11,13 @@ namespace CongThongTinMobifone.Models
         }
         [Key]
         [StringLength(50)]
+        [Display(Name = "Loại số")]
         public string Number_TypeID { get; set; }
         [StringLength(100)]
+        [Display(Name = "Tiêu đề")]
         public string Title { get; set; }
         [StringLength(150)]
+        [Display(Name = "Nội dung")]
         public string Content { get; set; }
         // --- Khóa ngoại Number_Type-Phone_number
         [InverseProperty("Number_TypeIDNavigation")]
