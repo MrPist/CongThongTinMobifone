@@ -4,132 +4,67 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="container-fluid px-4">
-    <h1>Trang bản tin</h1>
-    <p>
-        <a asp-action="Create">Thêm mới</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PostID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_content1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_content2)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_content3)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Post_content4)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.avatar)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.img1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.img2)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.img3)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Date_created)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Date_update)
-                </th>
-                <th>
-                    @Html.DisplayName("Thể loại tin")
-                </th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Post_title)
-                </td>
-                <td>
-                        @(item.Post_content1.Length >= 150 ? item.Post_content1.Substring(0, 150) : item.Post_content1 + "...")
-                </td>
-                <td>
-                        @(item.Post_content2.Length >= 150 ? item.Post_content2.Substring(0, 150) : item.Post_content2 + "...")
-                    </td>
-                <td>
-                        @(item.Post_content3.Length >= 150 ? item.Post_content3.Substring(0, 150) : item.Post_content3 + "...")
-                    </td>
-                <td>
-                        @(item.Post_content4.Length >= 150 ? item.Post_content4.Substring(0, 150) : item.Post_content4 + "...")
-                    </td>
-                <td>
-                    <img width="200px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)" />
-                </td>
-                <td>
-                    @if (item.img1 != "" && item.img1 != " " && item.img1 != "Không")
-                    {
-                            <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img1)" />
-                    }
-                    else
-                    {
-                            
-                    }
-                    </td>
-                <td>
-                    @if (item.img2 != "" && item.img2 != " " && item.img2 != "Không")
-                    {
-                        <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img2)" />
-                    }
-                    else
-                    {
-                            
-                    }
-                </td>
-                <td>
-                    @if (item.img3 != "" && item.img3 != " " && item.img3 != "Không")
-                    {
-                        <img width="100px" height="100px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.img3)" />
-                    }
-                    else
-                    {
-                            
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_created)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_update)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostIDNavigation.Name)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostID" class="text-danger">Edit</a>
-                </td>
-                <td>
-                    <a class="text-warning" asp-action="Details" asp-controller="Home" asp-route-id="@item.PostID">Details</a>
-                </td>
-                <td>
-                    <a class="text-info" asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>
-</div>
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Post_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post_content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.avatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_update)
+            </th>
+            <th>
+                @Html.DisplayName("Thể loại tin")
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post_title)
+            </td>
+            <td>
+                @(item.Post_content.Length >= 150 ? item.Post_content.Substring(0, 150) : item.Post_content + " ...")
+                @* @Html.DisplayFor(modelItem => item.Post_content) *@
+            </td>
+            <td>
+                    <img width="150px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_update)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostIDNavigation.Name)
+            </td>
+            <td>
+                <a class="text-danger" asp-action="Edit" asp-route-id="@item.PostID">Edit</a>
+            </td>
+            <td>
+                <a class="text-warning" asp-action="Details" asp-controller="Home" asp-route-id="@item.PostID">Details</a>
+            </td>
+            <td>
+                <a class="text-info" asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

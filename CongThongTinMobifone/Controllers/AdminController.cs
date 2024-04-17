@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CongThongTinMobifone.Data;
 using CongThongTinMobifone.Models;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using ValidateInput = System.Web.Mvc.ValidateInputAttribute;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CongThongTinMobifone.Controllers
 {
-    [Authorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -51,28 +51,43 @@ namespace CongThongTinMobifone.Controllers
         // GET: Admin/Create
         public IActionResult Create()
         {
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name");
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
             return View();
         }
 
         // POST: Admin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostID,PostCateID,Post_title,Post_content1,Post_content2,Post_content3,Post_content4,avatar,img1,img2,img3,Date_created,Date_update")] Post post)
+        public async Task<IActionResult> Create([Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update")] Post post, IFormFile Image)
         {
-            
             if (ModelState.IsValid)
             {
+                post.avatar = Upload(Image);
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
             return View(post);
         }
+
+        public string Upload(IFormFile file)
+        {
+            string? uploadFileName = null;
+            if (file != null)
+            {
+                uploadFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var path = $"wwwroot\\images\\Post_avt\\{uploadFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+            }
+            return uploadFileName;
+        }
+
 
         // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(string id)
@@ -87,7 +102,7 @@ namespace CongThongTinMobifone.Controllers
             {
                 return NotFound();
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
             return View(post);
         }
 
@@ -96,7 +111,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PostID,PostCateID,Post_title,Post_content1,Post_content2,Post_content3,Post_content4,avatar,img1,img2,img3,Date_created,Date_update")] Post post)
+        public async Task<IActionResult> Edit(string id, [Bind("PostID,PostCateID,Post_title,Post_content,avatar,Date_created,Date_update")] Post post)
         {
             if (id != post.PostID)
             {
@@ -123,7 +138,7 @@ namespace CongThongTinMobifone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", post.PostCateID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", post.PostCateID);
             return View(post);
         }
 
@@ -168,11 +183,6 @@ namespace CongThongTinMobifone.Controllers
         private bool PostExists(string id)
         {
           return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
-        }
-        public async Task<IActionResult> SortByName(string keyword)
-        {
-            var post = _context.Post.Where(p => p.Post_title.Contains(keyword));
-            return View(await post.ToListAsync());
         }
     }
 }

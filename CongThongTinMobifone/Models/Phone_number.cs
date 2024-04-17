@@ -21,6 +21,7 @@ namespace CongThongTinMobifone.Models
         [StringLength(150)]
         [Display(Name = "mô tả")]
         public string Description { get; set; }
+        public string link { get; set; }
         // --- khóa ngoại Number_Type-Phone_number
         [ForeignKey(nameof(Number_TypeID))]
         [InverseProperty(nameof(Number_Type.Phone_number))]

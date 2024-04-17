@@ -1,18 +1,18 @@
 ﻿@model CongThongTinMobifone.Models.Post
 
 @{
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
 }
 
+<h1>Create</h1>
 
+<h4>Post</h4>
+<hr />
 <div class="row">
-    <h1>Tạo mới</h1>
-
-    <h4>Tin tức</h4>
-    <hr />
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" asp-controller="Admin" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PostID" class="control-label"></label>
@@ -29,116 +29,9 @@
                 <span asp-validation-for="Post_title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Post_content1" class="control-label"></label>
-                <input asp-for="Post_content1" class="form-control" />
-                <span asp-validation-for="Post_content1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Post_content2" class="control-label"></label>
-                <input asp-for="Post_content2" class="form-control" />
-                <span asp-validation-for="Post_content2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Post_content3" class="control-label"></label>
-                <input asp-for="Post_content3" class="form-control" />
-                <span asp-validation-for="Post_content3" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Post_content4" class="control-label"></label>
-                <input asp-for="Post_content4" class="form-control" />
-                <span asp-validation-for="Post_content4" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="avatar" class="control-label"></label>
-                <input asp-for="avatar" type="file" class="form-control" />
+                <input type="file" id="Image" name="Image" asp-for="avatar" class="form-control" />
                 <span asp-validation-for="avatar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="img1" class="control-label"></label>
-                <br />
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <input type="radio" id="radioText1" name="inputType" /> Không nhập
-                <br>
-                <input type="radio" id="radioFile1" name="inputType" /> Nhập file
-                <br>
-                <input class="form-control" asp-for="img1" type="text" id="myText1" style="display: none;" value="" />
-                <input class="form-control" asp-for="img1" type="file" id="myFile1" name="ImageUpload" style="display: none;" value="" />
-
-                <script>
-                    $(document).ready(function () {
-                        $('#radioText1').change(function () {
-                            if (this.checked) {
-                                $('#myText1').show();
-                                $('#myFile1').hide();
-                            }
-                        });
-                        $('#radioFile1').change(function () {
-                            if (this.checked) {
-                                $('#myFile1').show();
-                                $('#myText1').hide();
-                            }
-                        });
-                    });
-                </script>
-                <span asp-validation-for="img1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="img2" class="control-label"></label>
-                <br />
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <input type="radio" id="radioText2" name="inputType" /> Không nhập
-                <br>
-                <input type="radio" id="radioFile2" name="inputType" /> Nhập file
-                <br>
-                <input class="form-control" asp-for="img2" type="text" id="myText2" style="display: none;" value="Không" />
-                <input class="form-control" asp-for="img2" type="file" id="myFile2" style="display: none;" value="Không" />
-                
-                <script>
-                    $(document).ready(function () {
-                        $('#radioText2').change(function () {
-                            if (this.checked) {
-                                $('#myText2').show();
-                                $('#myFile2').hide();
-                            }
-                        });
-                        $('#radioFile2').change(function () {
-                            if (this.checked) {
-                                $('#myFile2').show();
-                                $('#myText2').hide();
-                            }
-                        });
-                    });
-                </script>
-                <span asp-validation-for="img2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="img3" class="control-label"></label>
-                <br />
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <input type="radio" id="radioText3" name="inputType" /> Không nhập
-                <br>
-                <input type="radio" id="radioFile3" name="inputType" /> Nhập file
-                <br>
-                <input class="form-control" asp-for="img3" type="text" id="myText3" style="display: none;" value="Không" />
-                <input class="form-control" asp-for="img3" type="file" id="myFile3" style="display: none;" value="Không" />
-
-                <script>
-                    $(document).ready(function () {
-                        $('#radioText3').change(function () {
-                            if (this.checked) {
-                                $('#myText3').show();
-                                $('#myFile3').hide();
-                            }
-                        });
-                        $('#radioFile3').change(function () {
-                            if (this.checked) {
-                                $('#myFile3').show();
-                                $('#myText3').hide();
-                            }
-                        });
-                    });
-                </script>
-                <span asp-validation-for="img3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Date_created" class="control-label"></label>
@@ -149,6 +42,11 @@
                 <label asp-for="Date_update" class="control-label"></label>
                 <input asp-for="Date_update" class="form-control" />
                 <span asp-validation-for="Date_update" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post_content" class="control-label"></label>
+                <textarea asp-for="Post_content" name="Post_content" id="Post_content" class="form-control">@Model.Post_content</textarea>
+                <span asp-validation-for="Post_content" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -162,5 +60,12 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Post_content');
+    </script>
 }

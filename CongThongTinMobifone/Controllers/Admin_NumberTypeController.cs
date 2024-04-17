@@ -58,7 +58,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Number_TypeID,Title,Content")] Number_Type number_Type)
+        public async Task<IActionResult> Create([Bind("Number_TypeID,Title,Content,cost")] Number_Type number_Type)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Number_TypeID,Title,Content")] Number_Type number_Type)
+        public async Task<IActionResult> Edit(string id, [Bind("Number_TypeID,Title,Content,cost")] Number_Type number_Type)
         {
             if (id != number_Type.Number_TypeID)
             {

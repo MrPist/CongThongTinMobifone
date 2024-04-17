@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CongThongTinMobifone.Models.Post>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Trangchinh.cshtml";
 }
 
 <!-- Carousel -->
@@ -35,7 +35,8 @@
         <span class="carousel-control-next-icon"></span>
     </button>
 </div>
-
+<hr />
+<br />
 
 <div class="col-12">
     <section>
@@ -54,7 +55,7 @@
                             <div class="col-md-8 col-12 pt-sm-2 pt-md-0">
                                 <div class="min-h-100x">
                                     <h5 class="font-weight-bold">@item.Post_title</h5>
-                                    <p>@(item.Post_content1.Length >= 150 ? item.Post_content1.Substring(0, 150) : item.Post_content1 + "..")</p>
+                                    <p>@(item.Post_content.Length >= 150 ? item.Post_content.Substring(0, 150) : item.Post_content + "..")</p>
                                     <ul>
                                         <li class="latest"><span class="fa fa-calendar mr-1" style="color:#777777"></span>@String.Format("{0:dd-MM-yyyy}", item.Date_created)</li>
                                         @* <li class="latest"><span class="fa fa-tags mr-1" style="color:#777777"></span>@item.Tbl_Tags.FirstOrDefault().TagName</li> *@
@@ -73,7 +74,7 @@
                         <div class="card" style="width:200px">
                             <a asp-action="Details" asp-route-id="@item.PostID">
                                 <img class="card-img-top w-100" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
-                            
+
                                 <div class="ml-120 min-h-100x smallpop">
                                     <h5 class="poppost">@item.Post_title</h5>
                                     <h6 class="color-lite-black pt-2 mb-1">

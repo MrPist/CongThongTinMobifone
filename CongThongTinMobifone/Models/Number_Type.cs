@@ -19,6 +19,8 @@ namespace CongThongTinMobifone.Models
         [StringLength(150)]
         [Display(Name = "Nội dung")]
         public string Content { get; set; }
+        [Display(Name = "Giá")]
+        public string cost { get; set; }
         // --- Khóa ngoại Number_Type-Phone_number
         [InverseProperty("Number_TypeIDNavigation")]
         public virtual ICollection<Phone_number> Phone_number { get; set; }
