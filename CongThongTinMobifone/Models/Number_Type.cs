@@ -19,6 +19,7 @@ namespace CongThongTinMobifone.Models
         [StringLength(150)]
         [Display(Name = "Nội dung")]
         public string Content { get; set; }
+        [StringLength (20)]
         [Display(Name = "Giá")]
         public string cost { get; set; }
         // --- Khóa ngoại Number_Type-Phone_number

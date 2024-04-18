@@ -24,6 +24,12 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayName("Giá")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Number_TypeIDNavigation.cost)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Number_TypeIDNavigation)
         </dt>
         <dd class = "col-sm-10">

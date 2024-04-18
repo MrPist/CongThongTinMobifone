@@ -21,6 +21,9 @@
                 <th>
                     @Html.DisplayName("Mô Tả")
                 </th>
+                <th>
+                    @Html.DisplayName("Giá")
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -37,7 +40,10 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            <a href="" type="button" class="btn btn-outline-primary text-danger">Mua</a>
+                            @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.cost)
+                        </td>
+                        <td>
+                        <a href="@Html.DisplayFor(modelItem => item.link)" type="button" class="text-danger text-center btn btn-outline-primary">Mua</a>
                                 @* <a type="button" class="btn btn-outline-primary text-danger" asp-action="ChonSo" asp-route-id="@item.Number">Chọn số</a> *@
                         </td>
                     </tr>

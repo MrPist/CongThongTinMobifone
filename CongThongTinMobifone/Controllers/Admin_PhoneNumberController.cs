@@ -61,10 +61,27 @@ namespace CongThongTinMobifone.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Number,Number_TypeID,PostCateID,Description")] Phone_number phone_number)
+        public async Task<IActionResult> Create([Bind("Number,Number_TypeID,PostCateID,Description, link")] Phone_number phone_number)
         {
             if (ModelState.IsValid)
             {
+                // Kiểm tra xem Number_TypeID có tồn tại không
+                var numberTypeExists = _context.Number_Type.Any(nt => nt.Number_TypeID == phone_number.Number_TypeID);
+                if (!numberTypeExists)
+                {
+                    // Nếu Number_TypeID không tồn tại, trả về lỗi
+                    ModelState.AddModelError("Number_TypeID", "Number_TypeID không tồn tại.");
+                    return View(phone_number);
+                }
+                // Kiểm tra xem Number_TypeID có tồn tại không
+                var postCateExists = _context.Post_cate.Any(nt => nt.PostCateID == phone_number.PostCateID);
+                if (!postCateExists)
+                {
+                    // Nếu Number_TypeID không tồn tại, trả về lỗi
+                    ModelState.AddModelError("PostCateID", "PostCateID không tồn tại.");
+                    return View(phone_number);
+                }
+
                 _context.Add(phone_number);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -73,6 +90,7 @@ namespace CongThongTinMobifone.Controllers
             ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", phone_number.PostCateID);
             return View(phone_number);
         }
+
 
         // GET: Admin_PhoneNumber/Edit/5
         public async Task<IActionResult> Edit(string id)

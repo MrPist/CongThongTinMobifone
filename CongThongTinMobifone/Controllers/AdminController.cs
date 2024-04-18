@@ -10,9 +10,11 @@ using CongThongTinMobifone.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using ValidateInput = System.Web.Mvc.ValidateInputAttribute;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CongThongTinMobifone.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -183,6 +185,11 @@ namespace CongThongTinMobifone.Controllers
         private bool PostExists(string id)
         {
           return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
+        }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var post = _context.Post.Where(p => p.Post_title.Contains(keyword));
+            return View(await post.ToListAsync());
         }
     }
 }

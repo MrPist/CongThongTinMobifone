@@ -49,5 +49,19 @@ namespace CongThongTinMobifone.Controllers
         {
           return (_context.Post?.Any(e => e.PostID == id)).GetValueOrDefault();
         }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Info()
+        {
+            var applicationDbContext = _context.Post.Include(p => p.PostIDNavigation);
+            return View(await applicationDbContext.ToListAsync());
+        }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var post = _context.Post.Where(p => p.Post_title.Contains(keyword));
+            return View(await post.ToListAsync());
+        }
     }
 }

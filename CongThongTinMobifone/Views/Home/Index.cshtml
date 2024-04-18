@@ -46,7 +46,7 @@
                     <h4 class="p-title ml-md-1"><b>BÀI VIẾT GẦN ĐÂY</b></h4>
                     @foreach (var item in Model)
                     {
-                        <div class="link row oflow-hidden pos-relative mb-md-2 mb-1 dplay-block ml-md-1">
+                        <div class="link row oflow-hidden pos-relative mb-md-2 mb-1 dplay-block ml-md-1 border border-2">
                             <div class="col-md-4 col-12 pl-md-0 pb-sm-2" style="height:auto">
                                 <a asp-action="Details" asp-route-id="@item.PostID">
                                     <img class="card-img-top" width="300px" height="200px" src="~/images/Post_avt/@Html.DisplayFor(modelItem => item.avatar)">
@@ -55,7 +55,7 @@
                             <div class="col-md-8 col-12 pt-sm-2 pt-md-0">
                                 <div class="min-h-100x">
                                     <h5 class="font-weight-bold">@item.Post_title</h5>
-                                    <p>@(item.Post_content.Length >= 150 ? item.Post_content.Substring(0, 150) : item.Post_content + "..")</p>
+                                    <p>@Html.Raw(item.Post_content.Length >= 150 ? item.Post_content.Substring(0, 150) : item.Post_content + "..")</p>
                                     <ul>
                                         <li class="latest"><span class="fa fa-calendar mr-1" style="color:#777777"></span>@String.Format("{0:dd-MM-yyyy}", item.Date_created)</li>
                                         @* <li class="latest"><span class="fa fa-tags mr-1" style="color:#777777"></span>@item.Tbl_Tags.FirstOrDefault().TagName</li> *@
